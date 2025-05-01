@@ -1,0 +1,15 @@
+artifact_uri: file:///d:/campusx_dsmp2/9.%20MLOps%20revisited/cars24_mlops_project/experiment/mlruns/0/b76a9731b0124390b5b5f7c4dea52b3b/artifacts
+end_time: 1745995912896
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: b76a9731b0124390b5b5f7c4dea52b3b
+run_name: LinearRegression_StandardScaler_IterativeImputer_VarianceThreshold_OHE
+run_uuid: b76a9731b0124390b5b5f7c4dea52b3b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745995912782
+status: 3
+tags: []
+user_id: iampr

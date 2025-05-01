@@ -1,0 +1,15 @@
+artifact_uri: file:///d:/campusx_dsmp2/9.%20MLOps%20revisited/cars24_mlops_project/experiment/mlruns/0/c4d2cc6cd10d440c9d5bea56d3dfff8f/artifacts
+end_time: 1745949651500
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: c4d2cc6cd10d440c9d5bea56d3dfff8f
+run_name: LinearRegression_StandardScaler_SimpleMean_VarianceThreshold_OHE
+run_uuid: c4d2cc6cd10d440c9d5bea56d3dfff8f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745949651368
+status: 3
+tags: []
+user_id: iampr

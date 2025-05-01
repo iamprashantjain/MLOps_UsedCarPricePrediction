@@ -1,0 +1,15 @@
+artifact_uri: file:///d:/campusx_dsmp2/9.%20MLOps%20revisited/cars24_mlops_project/experiment/mlruns/0/aa972a7a4e30487c859b6330e35588ef/artifacts
+end_time: 1745949231257
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: aa972a7a4e30487c859b6330e35588ef
+run_name: LinearRegression_StandardScaler_SimpleMean_SelectFromModel_SVR_OHE
+run_uuid: aa972a7a4e30487c859b6330e35588ef
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745949230724
+status: 3
+tags: []
+user_id: iampr

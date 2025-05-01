@@ -1,0 +1,15 @@
+artifact_uri: file:///d:/campusx_dsmp2/9.%20MLOps%20revisited/cars24_mlops_project/experiment/mlruns/0/4a7dccf2714045aa901017285df7a9b0/artifacts
+end_time: 1745995913653
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 4a7dccf2714045aa901017285df7a9b0
+run_name: LinearRegression_StandardScaler_IterativeImputer_SelectFromModel_RF_OHE
+run_uuid: 4a7dccf2714045aa901017285df7a9b0
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745995913467
+status: 3
+tags: []
+user_id: iampr

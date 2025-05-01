@@ -1,0 +1,15 @@
+artifact_uri: file:///d:/campusx_dsmp2/9.%20MLOps%20revisited/cars24_mlops_project/experiment/mlruns/0/79fad74cd31d474598f9d5674454cbd0/artifacts
+end_time: 1745995918742
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 79fad74cd31d474598f9d5674454cbd0
+run_name: All_Pipeline_Experiments
+run_uuid: 79fad74cd31d474598f9d5674454cbd0
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745995904342
+status: 4
+tags: []
+user_id: iampr

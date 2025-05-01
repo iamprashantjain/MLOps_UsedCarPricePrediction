@@ -1,0 +1,15 @@
+artifact_uri: file:///d:/campusx_dsmp2/9.%20MLOps%20revisited/cars24_mlops_project/experiment/mlruns/0/019188fcdea7488087fd054ac0c8df73/artifacts
+end_time: 1745949554867
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 019188fcdea7488087fd054ac0c8df73
+run_name: LinearRegression_StandardScaler_SimpleMedian_SelectKBest_TFIDF
+run_uuid: 019188fcdea7488087fd054ac0c8df73
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745949554770
+status: 3
+tags: []
+user_id: iampr

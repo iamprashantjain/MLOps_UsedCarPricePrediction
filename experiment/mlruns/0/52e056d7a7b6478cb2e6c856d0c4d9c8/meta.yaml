@@ -1,0 +1,15 @@
+artifact_uri: file:///d:/campusx_dsmp2/9.%20MLOps%20revisited/cars24_mlops_project/experiment/mlruns/0/52e056d7a7b6478cb2e6c856d0c4d9c8/artifacts
+end_time: 1745949554484
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 52e056d7a7b6478cb2e6c856d0c4d9c8
+run_name: LinearRegression_StandardScaler_SimpleMean_SelectFromModel_SVR_BoW
+run_uuid: 52e056d7a7b6478cb2e6c856d0c4d9c8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745949554373
+status: 3
+tags: []
+user_id: iampr

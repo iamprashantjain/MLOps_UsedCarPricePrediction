@@ -1,0 +1,15 @@
+artifact_uri: file:///d:/campusx_dsmp2/9.%20MLOps%20revisited/cars24_mlops_project/experiment/mlruns/0/c5de615b07d84afdbbbb032af0a4c517/artifacts
+end_time: 1745949552052
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: c5de615b07d84afdbbbb032af0a4c517
+run_name: LinearRegression_StandardScaler_SimpleMean_RFECV_OHE
+run_uuid: c5de615b07d84afdbbbb032af0a4c517
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745949551884
+status: 3
+tags: []
+user_id: iampr

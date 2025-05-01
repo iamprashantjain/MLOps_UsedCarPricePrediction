@@ -1,0 +1,15 @@
+artifact_uri: file:///d:/campusx_dsmp2/9.%20MLOps%20revisited/cars24_mlops_project/experiment/mlruns/0/b9cc391860f140efb7a3ebcc7dfc6d63/artifacts
+end_time: 1745995913423
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: b9cc391860f140efb7a3ebcc7dfc6d63
+run_name: LinearRegression_StandardScaler_IterativeImputer_SelectFromModel_Lasso_OHE
+run_uuid: b9cc391860f140efb7a3ebcc7dfc6d63
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745995913252
+status: 3
+tags: []
+user_id: iampr

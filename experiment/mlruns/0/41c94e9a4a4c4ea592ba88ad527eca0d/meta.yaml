@@ -1,0 +1,15 @@
+artifact_uri: file:///d:/campusx_dsmp2/9.%20MLOps%20revisited/cars24_mlops_project/experiment/mlruns/0/41c94e9a4a4c4ea592ba88ad527eca0d/artifacts
+end_time: 1745995915345
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 41c94e9a4a4c4ea592ba88ad527eca0d
+run_name: LinearRegression_StandardScaler_MissingIndicator_SelectFromModel_Lasso_OHE
+run_uuid: 41c94e9a4a4c4ea592ba88ad527eca0d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745995915119
+status: 3
+tags: []
+user_id: iampr

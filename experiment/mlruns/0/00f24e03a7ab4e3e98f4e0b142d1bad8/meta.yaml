@@ -1,0 +1,15 @@
+artifact_uri: file:///d:/campusx_dsmp2/9.%20MLOps%20revisited/cars24_mlops_project/experiment/mlruns/0/00f24e03a7ab4e3e98f4e0b142d1bad8/artifacts
+end_time: 1745949651799
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 00f24e03a7ab4e3e98f4e0b142d1bad8
+run_name: LinearRegression_StandardScaler_SimpleMean_VarianceThreshold_TFIDF
+run_uuid: 00f24e03a7ab4e3e98f4e0b142d1bad8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745949651532
+status: 3
+tags: []
+user_id: iampr

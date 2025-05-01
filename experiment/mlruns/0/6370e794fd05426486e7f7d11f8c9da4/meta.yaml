@@ -1,0 +1,15 @@
+artifact_uri: file:///d:/campusx_dsmp2/9.%20MLOps%20revisited/cars24_mlops_project/experiment/mlruns/0/6370e794fd05426486e7f7d11f8c9da4/artifacts
+end_time: 1745995911387
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 6370e794fd05426486e7f7d11f8c9da4
+run_name: LinearRegression_StandardScaler_KNNImputer_RFE_OHE
+run_uuid: 6370e794fd05426486e7f7d11f8c9da4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745995911228
+status: 3
+tags: []
+user_id: iampr

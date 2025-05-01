@@ -1,0 +1,15 @@
+artifact_uri: file:///d:/campusx_dsmp2/9.%20MLOps%20revisited/cars24_mlops_project/experiment/mlruns/0/09a234b159b64e699626db38d833e237/artifacts
+end_time: 1745995907409
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 09a234b159b64e699626db38d833e237
+run_name: LinearRegression_StandardScaler_SimpleMedian_SelectFromModel_Lasso_OHE
+run_uuid: 09a234b159b64e699626db38d833e237
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745995907320
+status: 3
+tags: []
+user_id: iampr

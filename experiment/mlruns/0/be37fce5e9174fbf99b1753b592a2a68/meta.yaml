@@ -1,0 +1,15 @@
+artifact_uri: file:///d:/campusx_dsmp2/9.%20MLOps%20revisited/cars24_mlops_project/experiment/mlruns/0/be37fce5e9174fbf99b1753b592a2a68/artifacts
+end_time: 1745995911197
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: be37fce5e9174fbf99b1753b592a2a68
+run_name: LinearRegression_StandardScaler_KNNImputer_VarianceThreshold_OHE
+run_uuid: be37fce5e9174fbf99b1753b592a2a68
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745995911081
+status: 3
+tags: []
+user_id: iampr

@@ -1,0 +1,15 @@
+artifact_uri: file:///d:/campusx_dsmp2/9.%20MLOps%20revisited/cars24_mlops_project/experiment/mlruns/0/9d4b2564305c43dfa69fc2e42bf5d953/artifacts
+end_time: 1745995914534
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 9d4b2564305c43dfa69fc2e42bf5d953
+run_name: LinearRegression_StandardScaler_MissingIndicator_VarianceThreshold_OHE
+run_uuid: 9d4b2564305c43dfa69fc2e42bf5d953
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745995914232
+status: 3
+tags: []
+user_id: iampr

@@ -1,0 +1,15 @@
+artifact_uri: file:///d:/campusx_dsmp2/9.%20MLOps%20revisited/cars24_mlops_project/experiment/mlruns/0/dca7e4bb8c4f4c728f80da2bb0e6c013/artifacts
+end_time: 1745995915062
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: dca7e4bb8c4f4c728f80da2bb0e6c013
+run_name: LinearRegression_StandardScaler_MissingIndicator_RFECV_OHE
+run_uuid: dca7e4bb8c4f4c728f80da2bb0e6c013
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745995914851
+status: 3
+tags: []
+user_id: iampr

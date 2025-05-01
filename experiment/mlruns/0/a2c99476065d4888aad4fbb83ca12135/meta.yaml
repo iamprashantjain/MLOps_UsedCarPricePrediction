@@ -1,0 +1,15 @@
+artifact_uri: file:///d:/campusx_dsmp2/9.%20MLOps%20revisited/cars24_mlops_project/experiment/mlruns/0/a2c99476065d4888aad4fbb83ca12135/artifacts
+end_time: 1745995914201
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: a2c99476065d4888aad4fbb83ca12135
+run_name: LinearRegression_StandardScaler_MissingIndicator_SelectPercentile_OHE
+run_uuid: a2c99476065d4888aad4fbb83ca12135
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745995914063
+status: 3
+tags: []
+user_id: iampr

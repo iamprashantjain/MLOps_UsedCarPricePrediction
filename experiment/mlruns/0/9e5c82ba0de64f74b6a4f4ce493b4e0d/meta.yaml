@@ -1,0 +1,15 @@
+artifact_uri: file:///d:/campusx_dsmp2/9.%20MLOps%20revisited/cars24_mlops_project/experiment/mlruns/0/9e5c82ba0de64f74b6a4f4ce493b4e0d/artifacts
+end_time: 1745949552799
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 9e5c82ba0de64f74b6a4f4ce493b4e0d
+run_name: LinearRegression_StandardScaler_SimpleMean_SelectFromModel_Lasso_BoW
+run_uuid: 9e5c82ba0de64f74b6a4f4ce493b4e0d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745949552701
+status: 3
+tags: []
+user_id: iampr

@@ -1,0 +1,15 @@
+artifact_uri: file:///d:/campusx_dsmp2/9.%20MLOps%20revisited/cars24_mlops_project/experiment/mlruns/0/312b3d2b8fc644c08a88d5b010bdd05d/artifacts
+end_time: 1745949226139
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 312b3d2b8fc644c08a88d5b010bdd05d
+run_name: LinearRegression_StandardScaler_SimpleMean_SelectKBest_BoW
+run_uuid: 312b3d2b8fc644c08a88d5b010bdd05d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745949225900
+status: 3
+tags: []
+user_id: iampr

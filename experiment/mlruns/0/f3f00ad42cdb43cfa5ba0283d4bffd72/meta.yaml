@@ -1,0 +1,15 @@
+artifact_uri: file:///d:/campusx_dsmp2/9.%20MLOps%20revisited/cars24_mlops_project/experiment/mlruns/0/f3f00ad42cdb43cfa5ba0283d4bffd72/artifacts
+end_time: 1745949653933
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: f3f00ad42cdb43cfa5ba0283d4bffd72
+run_name: LinearRegression_StandardScaler_SimpleMean_RFECV_TFIDF
+run_uuid: f3f00ad42cdb43cfa5ba0283d4bffd72
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745949653801
+status: 3
+tags: []
+user_id: iampr
