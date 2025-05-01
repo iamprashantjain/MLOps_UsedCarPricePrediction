@@ -1,0 +1,2 @@
+[2025-05-01 17:37:19,619] 17 root - INFO - Data read successfully from D:\campusx_dsmp2\9. MLOps revisited\cars24_mlops_project\artifacts\data_ingestion\train\train.csv and D:\campusx_dsmp2\9. MLOps revisited\cars24_mlops_project\artifacts\data_ingestion\test\test.csv
+[2025-05-01 17:37:20,948] 94 root - INFO - Transformed data saved to D:\campusx_dsmp2\9. MLOps revisited\cars24_mlops_project\artifacts\transformed_data\train\train.csv and D:\campusx_dsmp2\9. MLOps revisited\cars24_mlops_project\artifacts\transformed_data\test\test.csv

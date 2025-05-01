@@ -4,29 +4,7 @@ import pandas as pd
 from datetime import datetime
 import logging
 from sklearn.model_selection import train_test_split
-
-
-# ==============================BASIC SETUP ===========================================================
-
-# Setup logging
-LOG_DIR = os.path.join(os.getcwd(), "logs")
-os.makedirs(LOG_DIR, exist_ok=True)
-
-logging.basicConfig(
-	level=logging.INFO,
-	filename=os.path.join(LOG_DIR, f"{datetime.now().strftime('%m_%d_%Y_%H_%M_%S')}.log"),
-	format="[%(asctime)s] %(lineno)d %(name)s - %(levelname)s - %(message)s"
-)
-
-
-# Custom exception class
-class CustomException(Exception):
-	def __init__(self, msg, details: sys):
-		_, _, tb = details.exc_info()
-		self.msg = f"Error in [{tb.tb_frame.f_code.co_filename}] at line [{tb.tb_lineno}]: {msg}"
-	def __str__(self): return self.msg
-
-# ====================================================================================================
+from utils import *
 
 
 # Read data
@@ -84,14 +62,14 @@ def data_ingestion_pipeline(source_type, path, output_dir="artifacts/data_ingest
 
 		# Read raw data
 		df = read_data(source_type, path)
-  
-  		# Perform basic adjustments
-		df = basic_adjustments(df)
 		
 		# Save raw data to the raw directory
 		raw_data_path = os.path.join(raw_data_dir, os.path.basename(path))
 		df.to_csv(raw_data_path, index=False)
 		logging.info(f"Raw data saved at {raw_data_path}")
+
+		# Perform basic adjustments
+		df = basic_adjustments(df)
 
 		# Split data
 		train_df, test_df = split_data(df)
@@ -112,6 +90,6 @@ def data_ingestion_pipeline(source_type, path, output_dir="artifacts/data_ingest
 		raise CustomException(e, sys)
 
 
-if __name__ == "__main__":
-	raw_path, train_path, test_path = data_ingestion_pipeline('path', r'D:\campusx_dsmp2\9. MLOps revisited\cars24_mlops_project\artifacts\scraped_data\cars24_scraped_data.csv')
-	print(f"Data saved: {raw_path}, {train_path}, {test_path}")
+# if __name__ == "__main__":
+# 	raw_path, train_path, test_path = data_ingestion_pipeline('path', r'D:\campusx_dsmp2\9. MLOps revisited\cars24_mlops_project\artifacts\scraped_data\cars24_scraped_data.csv')
+# 	print(f"Data saved: {raw_path}, {train_path}, {test_path}")
