@@ -5,6 +5,12 @@ from datetime import datetime
 import logging
 from sklearn.model_selection import train_test_split
 from utils import *
+import yaml
+
+with open("params.yaml", "r") as f:
+    params = yaml.safe_load(f)
+
+test_size = params["data_ingestion"]["test_size"]
 
 
 # Read data
@@ -23,10 +29,7 @@ def read_data(source_type, path):
 
 # Basic transformations
 def basic_adjustments(df):
-	try:
-		#taking only 1000 rows for faster processing
-		df = df.sample(1000)
-	 
+	try:	 
 		#dropping useless columns
 		df.drop(columns=['maskedRegNum', 'cityId', 'oemServiceHistoryAvailable'], inplace=True)
 		logging.info("Basic adjustments done")
@@ -90,6 +93,6 @@ def data_ingestion_pipeline(source_type, path, output_dir="artifacts/data_ingest
 		raise CustomException(e, sys)
 
 
-# if __name__ == "__main__":
-# 	raw_path, train_path, test_path = data_ingestion_pipeline('path', r'D:\campusx_dsmp2\9. MLOps revisited\cars24_mlops_project\artifacts\scraped_data\cars24_scraped_data.csv')
-# 	print(f"Data saved: {raw_path}, {train_path}, {test_path}")
+if __name__ == "__main__":
+	raw_path, train_path, test_path = data_ingestion_pipeline('path', r'D:\campusx_dsmp2\9. MLOps revisited\cars24_mlops_project\artifacts\scraped_data\cars24_scraped_data.csv')
+	print(f"Data saved: {raw_path}, {train_path}, {test_path}")
