@@ -66,7 +66,15 @@ def data_cleaning(df):
             'ParkingAssist', 'PushButtonStart', 'RearAc', 'SpecialRegNo', 'Sunroof/Moonroof',
             'TopModel', 'Tpms', 'VentilatedSeats'
         ]
+        
+        # Ensure all expected boolean columns exist
+        for col in bool_columns:
+            if col not in df.columns:
+                df[col] = False  # or 0
+
+        # Now safely convert to 1/0
         df[bool_columns] = df[bool_columns].applymap(lambda x: 1 if x else 0)
+
 
         return df
     except Exception as e:

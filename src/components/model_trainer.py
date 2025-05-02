@@ -42,18 +42,16 @@ def train_model(df, model_alpha):
 # 3. Save model
 def save_model(model, base_path="artifacts/model"):
     try:
-        today = date.today().isoformat()
-        output_dir = os.path.join(base_path, today)
+        output_dir = os.path.join(base_path)
         os.makedirs(output_dir, exist_ok=True)
 
-        model_path = os.path.join(output_dir, "lasso_model.pkl")
+        model_path = os.path.join(output_dir, "model.pkl")
         joblib.dump(model, model_path)
 
         logging.info(f"Model saved to {model_path}")
         return model_path
     except Exception as e:
         raise CustomException(e, sys)
-
 
 
 

@@ -65,6 +65,7 @@ def data_ingestion_pipeline(source_type, path, output_dir="artifacts/data_ingest
 
 		# Read raw data
 		df = read_data(source_type, path)
+		df = df.sample(100)
 		
 		# Save raw data to the raw directory
 		raw_data_path = os.path.join(raw_data_dir, os.path.basename(path))
