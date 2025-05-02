@@ -1,7 +1,7 @@
 data_ingestion:
-  test_size : 0.2
+  test_size : 0.3
 
 model_training:
-  model_alpha : 0.1
+  model_alpha : 0.5
 
 

@@ -6,6 +6,17 @@ from datetime import date
 from sklearn.linear_model import Lasso
 from sklearn.feature_selection import RFECV
 import yaml
+import mlflow
+import json
+import dagshub
+import mlflow.models
+from mlflow.models.signature import infer_signature
+
+
+# Initialize DagsHub MLflow URI
+mlflow.set_tracking_uri("https://dagshub.com/iamprashantjain/MLOps_UsedCarPricePrediction.mlflow")
+dagshub.init(repo_owner='iamprashantjain', repo_name='MLOps_UsedCarPricePrediction', mlflow=True)
+
 
 with open("params.yaml", "r") as f:
     params = yaml.safe_load(f)
@@ -39,25 +50,44 @@ def train_model(df, model_alpha):
         raise CustomException(e, sys)
 
 
-# 3. Save model
-def save_model(model, base_path="artifacts/model"):
+# 3. Save model and log to MLflow in dvc pipeline since best model with best param is selected for dvc pipeline
+def save_and_log_model(model, X, base_path="artifacts/model"):
     try:
-        output_dir = os.path.join(base_path)
-        os.makedirs(output_dir, exist_ok=True)
+        os.makedirs(base_path, exist_ok=True)
 
-        model_path = os.path.join(output_dir, "model.pkl")
+        model_path = os.path.join(base_path, "model.pkl")
         joblib.dump(model, model_path)
-
         logging.info(f"Model saved to {model_path}")
+
+        # Start MLflow run and log model
+        with mlflow.start_run() as run:
+            signature = infer_signature(X, model.predict(X))
+            mlflow.sklearn.log_model(model, "model", signature=signature, input_example=X.iloc[:5])
+
+            mlflow.log_param("alpha", model.estimator_.alpha)
+            mlflow.log_metric("n_features_selected", model.n_features_)
+
+            # Save model info for registration
+            model_info = {
+                "run_id": run.info.run_id,
+                "model_path": "model"
+            }
+            with open(os.path.join(base_path, "model_info.json"), "w") as f:
+                json.dump(model_info, f)
+            logging.info("MLflow model info saved.")
+
         return model_path
     except Exception as e:
         raise CustomException(e, sys)
+    
 
-
-
+# Run training
 if __name__ == "__main__":
     train_path = r"D:\campusx_dsmp2\9. MLOps revisited\cars24_mlops_project\artifacts\transformed_data\train\train.csv"
     df = read_training_data(train_path)
-    
+        
     model = train_model(df, model_alpha)
-    save_model(model)
+
+    # Pass X (the feature data) along with the model to save_and_log_model
+    X = df.drop(columns=["listingPrice"])  # This is the feature matrix
+    save_and_log_model(model, X)

@@ -30,3 +30,12 @@ stages:
       - model_training.model_alpha
     outs:
       - artifacts/model/model.pkl
+      - artifacts/model/model_info.json
+
+
+  register_model:
+    cmd: python src/components/register_model.py
+    deps:
+      - src/components/register_model.py
+      - artifacts/model/model_info.json
+    params: []
