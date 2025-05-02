@@ -16,6 +16,7 @@ model_alpha = params["model_training"]["model_alpha"]
 def read_training_data(path):
     try:
         df = pd.read_csv(path)
+        print(df.columns)
         logging.info(f"Training data read from {path}, shape: {df.shape}")
         return df
     except Exception as e:

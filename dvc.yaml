@@ -14,8 +14,8 @@ stages:
     cmd: python src/components/data_transformation.py
     deps:
       - src/components/data_transformation.py
-      - artifacts/data_ingestion/train.csv
-      - artifacts/data_ingestion/test.csv
+      - artifacts/data_ingestion/train/train.csv
+      - artifacts/data_ingestion/test/test.csv
     outs:
       - artifacts/transformed_data/train/train.csv
       - artifacts/transformed_data/test/test.csv

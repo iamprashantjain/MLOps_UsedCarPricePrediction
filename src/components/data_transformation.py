@@ -74,11 +74,15 @@ def data_cleaning(df):
         raise CustomException(e, sys)
 
 
-# 3. Perform transformation (encoding + scaling)
 def perform_transformation(train_df, test_df):
     try:
-        X_train = train_df.copy()
-        X_test = test_df.copy()
+        target_col = 'listingPrice'
+        
+        X_train = train_df.drop(columns=[target_col])
+        y_train = train_df[target_col]
+        
+        X_test = test_df.drop(columns=[target_col])
+        y_test = test_df[target_col]
 
         numerical_cols = X_train.select_dtypes(include=['number']).columns.tolist()
         categorical_cols = X_train.select_dtypes(include=['object', 'bool']).columns.tolist()
@@ -101,25 +105,22 @@ def perform_transformation(train_df, test_df):
         X_train_transformed = preprocessor.fit_transform(X_train)
         X_test_transformed = preprocessor.transform(X_test)
 
-        encoded_cat_cols = preprocessor.named_transformers_['cat']['encoder'].get_feature_names_out(categorical_cols)
+        # Get feature names safely
+        output_feature_names = preprocessor.get_feature_names_out()
+        final_columns = output_feature_names.tolist()
 
-        transformed_train_df = pd.DataFrame(
-            X_train_transformed,
-            columns=numerical_cols + list(encoded_cat_cols),
-            index=X_train.index
-        )
+        transformed_train_df = pd.DataFrame(X_train_transformed, columns=final_columns, index=X_train.index)
+        transformed_test_df = pd.DataFrame(X_test_transformed, columns=final_columns, index=X_test.index)
 
-        transformed_test_df = pd.DataFrame(
-            X_test_transformed,
-            columns=numerical_cols + list(encoded_cat_cols),
-            index=X_test.index
-        )
+        # Add target back to final dataframe
+        transformed_train_df[target_col] = y_train.values
+        transformed_test_df[target_col] = y_test.values
 
         return transformed_train_df, transformed_test_df
 
     except Exception as e:
-        logging.error("Error during transformation pipeline", exc_info=True)
         raise CustomException(e, sys)
+
 
 
 # 4. Save transformed data
@@ -142,27 +143,26 @@ def save_transformed_data(train_df, test_df, train_data_dir, test_data_dir):
 
 # 5. Run pipeline
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO)
 
     # Step 1: Read raw train and test data
     train_path = r"D:\campusx_dsmp2\9. MLOps revisited\cars24_mlops_project\artifacts\data_ingestion\train\train.csv"
     test_path = r"D:\campusx_dsmp2\9. MLOps revisited\cars24_mlops_project\artifacts\data_ingestion\test\test.csv"
 
     train_df, test_df = read_data('path', train_path, test_path)
-    print("Train and test data read successfully.")
+    logging.info("Train and test data read successfully.")
 
     # Step 2: Clean data
     train_df = data_cleaning(train_df)
     test_df = data_cleaning(test_df)
-    print("Data cleaning completed.")
+    logging.info("Data cleaning completed.")
 
     # Step 3: Transform data (OHE, scaling)
     train_df, test_df = perform_transformation(train_df, test_df)
-    print("Data transformation (encoding/scaling) completed.")
+    logging.info("Data transformation (encoding/scaling) completed.")
 
     # Step 4: Save transformed data
     train_out_dir = r"D:\campusx_dsmp2\9. MLOps revisited\cars24_mlops_project\artifacts\transformed_data\train"
     test_out_dir = r"D:\campusx_dsmp2\9. MLOps revisited\cars24_mlops_project\artifacts\transformed_data\test"
 
     save_transformed_data(train_df, test_df, train_out_dir, test_out_dir)
-    print("Transformed data saved successfully.")
+    logging.info("Transformed data saved successfully.")
