@@ -26,6 +26,8 @@ stages:
       - src/components/model_trainer.py
       - artifacts/transformed_data/train/train.csv
       - artifacts/transformed_data/test/test.csv
+      - artifacts/preprocessor/preprocessor.pkl
+      - artifacts/preprocessor/selected_features.pkl
     params:
       - model_training.model_alpha
     outs:

@@ -1,93 +1,118 @@
 import pandas as pd
 import os
 import joblib
-from utils import *
-from datetime import date
-from sklearn.linear_model import Lasso
-from sklearn.feature_selection import RFECV
+import logging
+import sys
 import yaml
 import mlflow
 import json
 import dagshub
-import mlflow.models
+
+from sklearn.linear_model import Lasso
 from mlflow.models.signature import infer_signature
+from utils import *
 
-
-# Initialize DagsHub MLflow URI
+# Initialize MLflow with DagsHub
 mlflow.set_tracking_uri("https://dagshub.com/iamprashantjain/MLOps_UsedCarPricePrediction.mlflow")
 dagshub.init(repo_owner='iamprashantjain', repo_name='MLOps_UsedCarPricePrediction', mlflow=True)
 
-
+# Load parameters
 with open("params.yaml", "r") as f:
     params = yaml.safe_load(f)
-
 model_alpha = params["model_training"]["model_alpha"]
 
-# 1. Read training data
-def read_training_data(path):
+
+def read_data(source_type, train_path):
+    if source_type == 'path':
+        try:
+            df = pd.read_csv(train_path)
+            logging.info(f"Data read successfully from {train_path}")
+            return df
+        except Exception as e:
+            logging.error("Failed to read data", exc_info=True)
+            raise CustomException(e, sys)
+    else:
+        logging.info("Other source type not configured yet")
+
+
+def apply_preprocessor(df, preprocessor_path, selected_features_path):
     try:
-        df = pd.read_csv(path)
-        print(df.columns)
-        logging.info(f"Training data read from {path}, shape: {df.shape}")
-        return df
+        preprocessor = joblib.load(preprocessor_path)
+        feature_mask = joblib.load(selected_features_path)
+
+        X_transformed = preprocessor.transform(df)
+        X_selected = X_transformed[:, feature_mask]
+
+        return X_selected, preprocessor, feature_mask
     except Exception as e:
         raise CustomException(e, sys)
 
 
-# 2. Train model using Lasso + RFECV
-def train_model(df, model_alpha):
+def train_lasso_model(X, y, alpha):
     try:
-        X = df.drop(columns=["listingPrice"])
-        y = df["listingPrice"]
-
-        lasso = Lasso(alpha=model_alpha, random_state=42)
-        rfecv = RFECV(estimator=lasso, step=1, cv=2, scoring='neg_mean_squared_error', n_jobs=-1)
-        rfecv.fit(X, y)
-
-        logging.info(f"Model training complete. Optimal features: {rfecv.n_features_}")
-        return rfecv
+        model = Lasso(alpha=alpha, random_state=42)
+        model.fit(X, y)
+        logging.info("Lasso model training complete.")
+        return model
     except Exception as e:
         raise CustomException(e, sys)
 
 
-# 3. Save model and log to MLflow in dvc pipeline since best model with best param is selected for dvc pipeline
-def save_and_log_model(model, X, base_path="artifacts/model"):
+def save_model_artifacts(model, X_selected, selected_feature_names, base_path="artifacts/model"):
     try:
         os.makedirs(base_path, exist_ok=True)
-
         model_path = os.path.join(base_path, "model.pkl")
         joblib.dump(model, model_path)
-        logging.info(f"Model saved to {model_path}")
 
-        # Start MLflow run and log model
+        # Save selected feature names
+        with open(os.path.join(base_path, "feature_names.json"), "w") as f:
+            json.dump(selected_feature_names, f)
+
+        # MLflow logging
+        input_example = pd.DataFrame(X_selected[:5], columns=selected_feature_names)
         with mlflow.start_run() as run:
-            signature = infer_signature(X, model.predict(X))
-            mlflow.sklearn.log_model(model, "model", signature=signature, input_example=X.iloc[:5])
+            signature = infer_signature(X_selected, model.predict(X_selected))
+            mlflow.sklearn.log_model(model, "model", signature=signature, input_example=input_example)
+            mlflow.log_param("alpha", model.alpha)
+            mlflow.log_metric("num_features", X_selected.shape[1])
 
-            mlflow.log_param("alpha", model.estimator_.alpha)
-            mlflow.log_metric("n_features_selected", model.n_features_)
-
-            # Save model info for registration
             model_info = {
                 "run_id": run.info.run_id,
                 "model_path": "model"
             }
             with open(os.path.join(base_path, "model_info.json"), "w") as f:
                 json.dump(model_info, f)
-            logging.info("MLflow model info saved.")
 
+        logging.info("Model and metadata logged with MLflow.")
         return model_path
     except Exception as e:
         raise CustomException(e, sys)
-    
 
-# Run training
+
 if __name__ == "__main__":
-    train_path = r"D:\campusx_dsmp2\9. MLOps revisited\cars24_mlops_project\artifacts\transformed_data\train\train.csv"
-    df = read_training_data(train_path)
-        
-    model = train_model(df, model_alpha)
+    try:
+        # Load raw train data (with target)
+        train_path = r"D:\campusx_dsmp2\9. MLOps revisited\cars24_mlops_project\artifacts\transformed_data\train\train.csv"
+        train_df = read_data('path', train_path)
 
-    # Pass X (the feature data) along with the model to save_and_log_model
-    X = df.drop(columns=["listingPrice"])  # This is the feature matrix
-    save_and_log_model(model, X)
+        X = train_df.drop(columns=["listingPrice"])
+        y = train_df["listingPrice"]
+
+        # Load preprocessing and feature selection artifacts
+        preprocessor_path = "artifacts/preprocessor/preprocessor.pkl"
+        selected_features_path = "artifacts/preprocessor/selected_features.pkl"
+        X_selected, preprocessor, mask = apply_preprocessor(X, preprocessor_path, selected_features_path)
+
+        # Get selected feature names
+        all_feature_names = preprocessor.get_feature_names_out()
+        selected_feature_names = list(all_feature_names[mask])
+        logging.info(f"Selected Features: {selected_feature_names}")
+
+        # Train final model
+        model = train_lasso_model(X_selected, y, model_alpha)
+
+        # Save model and log to MLflow
+        save_model_artifacts(model, X_selected, selected_feature_names)
+
+    except Exception as e:
+        raise CustomException(e, sys)

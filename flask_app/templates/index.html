@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Used Car Price Prediction</title>
+</head>
+<body>
+    <h2>Enter Car Details for Price Prediction</h2>
+    <form action="/predict" method="POST">
+        <label for="year">Year:</label>
+        <input type="text" id="year" name="year" required><br><br>
+
+        <label for="odometer">Odometer (in km):</label>
+        <input type="text" id="odometer" name="odometer" required><br><br>
+
+        <label for="ownership">Ownership (1 for Owned, 0 for Leased):</label>
+        <input type="text" id="ownership" name="ownership" required><br><br>
+
+        <label for="transmissionType">Transmission Type (e.g., Manual, Automatic):</label>
+        <input type="text" id="transmissionType" name="transmissionType" required><br><br>
+
+        <label for="emiStartingValue">EMI Starting Value:</label>
+        <input type="text" id="emiStartingValue" name="emiStartingValue" required><br><br>
+
+        <label for="emiEndingValue">EMI Ending Value:</label>
+        <input type="text" id="emiEndingValue" name="emiEndingValue" required><br><br>
+
+        <label for="features">Features (select multiple with CTRL/Command):</label>
+        <select name="features" id="features" multiple>
+            <option value="LeatherSeats">LeatherSeats</option>
+            <option value="Bluetooth">Bluetooth</option>
+            <option value="Sunroof/Moonroof">Sunroof/Moonroof</option>
+            <option value="AlloyWheels">AlloyWheels</option>
+            <!-- Add all other features here -->
+        </select><br><br>
+
+        <button type="submit">Predict Price</button>
+    </form>
+
+    {% if prediction_text %}
+        <h3>{{ prediction_text }}</h3>
+    {% endif %}
+</body>
+</html>

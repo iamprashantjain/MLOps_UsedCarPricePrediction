@@ -21,7 +21,7 @@ def read_data(source_type, path):
 			logging.info(f"Data read successfully from {path}")
 			return df
 		except Exception as e:
-			logging.error("Failed to read data", exc_info=True)
+			logging.info("Failed to read data", exc_info=True)
 			raise CustomException(e, sys)
 	else:
 		logging.info("Other source type not configured yet")
@@ -36,7 +36,7 @@ def basic_adjustments(df):
 		return df
 	
 	except Exception as e:
-		logging.error("Failed to perform basic adjustments", exc_info=True)
+		logging.info("Failed to perform basic adjustments", exc_info=True)
 		raise CustomException(e, sys)
 
 
@@ -47,7 +47,7 @@ def split_data(df, test_size=0.2, random_state=42):
 		logging.info(f"Train-test split done with test size {test_size}")
 		return train_df, test_df
 	except Exception as e:
-		logging.error("Failed during train-test split", exc_info=True)
+		logging.info("Failed during train-test split", exc_info=True)
 		raise CustomException(e, sys)
 
 
@@ -65,7 +65,7 @@ def data_ingestion_pipeline(source_type, path, output_dir="artifacts/data_ingest
 
 		# Read raw data
 		df = read_data(source_type, path)
-		df = df.sample(100)
+		df = df.sample(150)
 		
 		# Save raw data to the raw directory
 		raw_data_path = os.path.join(raw_data_dir, os.path.basename(path))
@@ -90,7 +90,7 @@ def data_ingestion_pipeline(source_type, path, output_dir="artifacts/data_ingest
 		return raw_data_path, train_path, test_path
 
 	except Exception as e:
-		logging.error("Data ingestion pipeline failed", exc_info=True)
+		logging.info("Data ingestion pipeline failed", exc_info=True)
 		raise CustomException(e, sys)
 
 

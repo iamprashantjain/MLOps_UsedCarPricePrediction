@@ -1,5 +1,0 @@
-[2025-05-01 18:14:59,932] 21 root - INFO - Data read successfully from D:\campusx_dsmp2\9. MLOps revisited\cars24_mlops_project\artifacts\scraped_data\cars24_scraped_data.csv
-[2025-05-01 18:15:02,117] 72 root - INFO - Raw data saved at artifacts/data_ingestion\raw\cars24_scraped_data.csv
-[2025-05-01 18:15:02,125] 35 root - INFO - Basic adjustments done
-[2025-05-01 18:15:02,136] 47 root - INFO - Train-test split done with test size 0.2
-[2025-05-01 18:15:04,467] 87 root - INFO - Train and test data saved at artifacts/data_ingestion\train and artifacts/data_ingestion\test
