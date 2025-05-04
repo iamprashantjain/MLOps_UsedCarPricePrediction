@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Price Prediction</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2 class="my-4">Used Car Price Prediction</h2>
+        <form id="predict-form" method="POST" action="/predict">
+            <!-- Basic Details -->
+            <div class="form-group"><label for="make">Make</label><input type="text" class="form-control" id="make" name="make" required></div>
+            <div class="form-group"><label for="model">Model</label><input type="text" class="form-control" id="model" name="model" required></div>
+            <div class="form-group"><label for="variant">Variant</label><input type="text" class="form-control" id="variant" name="variant" required></div>
+            <div class="form-group"><label for="year">Year</label><input type="number" class="form-control" id="year" name="year" required></div>
+            <div class="form-group"><label for="transmissionType">Transmission Type</label><input type="text" class="form-control" id="transmissionType" name="transmissionType" required></div>
+            <div class="form-group"><label for="bodyType">Body Type</label><input type="text" class="form-control" id="bodyType" name="bodyType" required></div>
+            <div class="form-group"><label for="fuelType">Fuel Type</label><input type="text" class="form-control" id="fuelType" name="fuelType" required></div>
+            <div class="form-group"><label for="ownership">Ownership</label><input type="text" class="form-control" id="ownership" name="ownership"></div>
+            <div class="form-group"><label for="color">Color</label><input type="text" class="form-control" id="color" name="color" required></div>
+            <div class="form-group"><label for="odometer">Odometer</label><input type="number" class="form-control" id="odometer" name="odometer" required></div>
+            <div class="form-group"><label for="fitnessAge">Fitness Age</label><input type="number" class="form-control" id="fitnessAge" name="fitnessAge" required></div>
+
+            <!-- Features -->
+            <div class="form-group"><label for="360DegreeCamera">360 Degree Camera</label><input type="number" class="form-control" id="360DegreeCamera" name="360DegreeCamera" min="0" max="1"></div>
+            <div class="form-group"><label for="AlloyWheels">Alloy Wheels</label><input type="number" class="form-control" id="AlloyWheels" name="AlloyWheels" min="0" max="1"></div>
+            <div class="form-group"><label for="AppleCarplayAndroidAuto">Apple Carplay / Android Auto</label><input type="number" class="form-control" id="AppleCarplayAndroidAuto" name="AppleCarplayAndroidAuto" min="0" max="1"></div>
+            <div class="form-group"><label for="Bluetooth">Bluetooth</label><input type="number" class="form-control" id="Bluetooth" name="Bluetooth" min="0" max="1"></div>
+            <div class="form-group"><label for="CruiseControl">Cruise Control</label><input type="number" class="form-control" id="CruiseControl" name="CruiseControl" min="0" max="1"></div>
+            <div class="form-group"><label for="GpsNavigation">GPS Navigation</label><input type="number" class="form-control" id="GpsNavigation" name="GpsNavigation" min="0" max="1"></div>
+            <div class="form-group"><label for="InfotainmentSystem">Infotainment System</label><input type="number" class="form-control" id="InfotainmentSystem" name="InfotainmentSystem" min="0" max="1"></div>
+            <div class="form-group"><label for="LeatherSeats">Leather Seats</label><input type="number" class="form-control" id="LeatherSeats" name="LeatherSeats" min="0" max="1"></div>
+            <div class="form-group"><label for="ParkingAssist">Parking Assist</label><input type="number" class="form-control" id="ParkingAssist" name="ParkingAssist" min="0" max="1"></div>
+            <div class="form-group"><label for="PushButtonStart">Push Button Start</label><input type="number" class="form-control" id="PushButtonStart" name="PushButtonStart" min="0" max="1"></div>
+            <div class="form-group"><label for="RearAc">Rear AC</label><input type="number" class="form-control" id="RearAc" name="RearAc" min="0" max="1"></div>
+            <div class="form-group"><label for="SpecialRegNo">Special Registration Number</label><input type="number" class="form-control" id="SpecialRegNo" name="SpecialRegNo" min="0" max="1"></div>
+            <div class="form-group"><label for="Sunroof/Moonroof">Sunroof / Moonroof</label><input type="number" class="form-control" id="Sunroof/Moonroof" name="Sunroof/Moonroof" min="0" max="1"></div>
+            <div class="form-group"><label for="TopModel">Top Model</label><input type="number" class="form-control" id="TopModel" name="TopModel" min="0" max="1"></div>
+            <div class="form-group"><label for="Tpms">TPMS</label><input type="number" class="form-control" id="Tpms" name="Tpms" min="0" max="1"></div>
+            <div class="form-group"><label for="VentilatedSeats">Ventilated Seats</label><input type="number" class="form-control" id="VentilatedSeats" name="VentilatedSeats" min="0" max="1"></div>
+
+            <!-- Summary Columns -->
+            <div class="form-group"><label for="featureCount">Feature Count</label><input type="number" class="form-control" id="featureCount" name="featureCount" required></div>
+            <div class="form-group"><label for="avgEmi">Average EMI</label><input type="number" class="form-control" id="avgEmi" name="avgEmi" step="0.01" required></div>
+
+            <button type="submit" class="btn btn-primary">Predict</button>
+        </form>
+
+        <h4 class="my-4" id="prediction-result"></h4>
+    </div>
+
+    <script>
+        const form = document.getElementById('predict-form');
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const formData = new FormData(form);
+            const formObject = Object.fromEntries(formData.entries());
+
+            try {
+                const response = await fetch('/predict', {
+                    method: 'POST',
+                    body: new URLSearchParams(formObject),
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    document.getElementById('prediction-result').textContent = `Predicted Price: ₹${result.PredictedPrice}`;
+                } else {
+                    document.getElementById('prediction-result').textContent = `Error: ${result.error}`;
+                }
+            } catch (error) {
+                document.getElementById('prediction-result').textContent = `Error: ${error.message}`;
+            }
+        });
+    </script>
+</body>
+</html>
