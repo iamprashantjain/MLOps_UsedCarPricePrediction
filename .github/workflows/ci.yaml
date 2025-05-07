@@ -24,6 +24,10 @@ jobs:
         run: |
           pip install dvc
 
+      - name: Pull DVC data
+        run: |
+          dvc pull
+          
       - name: Run DVC pipeline
         run: |
           dvc repro
