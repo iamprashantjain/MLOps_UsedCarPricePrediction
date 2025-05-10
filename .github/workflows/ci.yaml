@@ -36,4 +36,4 @@ jobs:
         run: dvc pull --force
 
       - name: Run DVC pipeline
-        run: dvc repro
+        run: dvc repro --force --recursive
