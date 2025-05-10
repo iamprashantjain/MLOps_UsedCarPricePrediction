@@ -33,7 +33,7 @@ jobs:
           echo "aws_secret_access_key = ${{ secrets.AWS_SECRET_ACCESS_KEY }}" >> ~/.aws/credentials
 
       - name: Pull DVC data
-        run: dvc pull
+        run: dvc pull --force
 
       - name: Run DVC pipeline
         run: dvc repro
