@@ -95,5 +95,7 @@ def data_ingestion_pipeline(source_type, path, output_dir="artifacts/data_ingest
 
 
 if __name__ == "__main__":
-	raw_path, train_path, test_path = data_ingestion_pipeline('path', r'D:\campusx_dsmp2\9. MLOps revisited\cars24_mlops_project\artifacts\scraped_data\cars24_scraped_data.csv')
+    
+	# raw_path, train_path, test_path = data_ingestion_pipeline('path', r'D:\campusx_dsmp2\9. MLOps revisited\cars24_mlops_project\artifacts\scraped_data\cars24_scraped_data.csv')
+	raw_path, train_path, test_path = data_ingestion_pipeline('path', 'artifacts/scraped_data/cars24_scraped_data.csv')
 	print(f"Data saved: {raw_path}, {train_path}, {test_path}")
