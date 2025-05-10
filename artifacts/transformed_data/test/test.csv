@@ -1,0 +1,31 @@
+,listingPrice,make,model,variant,year,transmissionType,bodyType,fuelType,ownership,color,odometer,fitnessAge,360DegreeCamera,AlloyWheels,AppleCarplayAndroidAuto,Bluetooth,CruiseControl,GpsNavigation,InfotainmentSystem,LeatherSeats,ParkingAssist,PushButtonStart,RearAc,SpecialRegNo,Sunroof/Moonroof,TopModel,Tpms,VentilatedSeats,featureCount,avgEmi
+0,200000,Renault,Kwid,RXT 1.0,2016,Manual,Hatchback,Petrol,,Brown,106432,15,0,0,0,1,0,1,0,0,0,0,0,0,0,1,0,0,3,4449.0
+1,2895000,Ford,Endeavour,TITANIUM PLUS 2.2 4X2 AT SUNROOF,2019,Automatic,SUV,Diesel,,Black,55913,10,0,1,1,1,1,1,1,1,1,1,1,0,1,1,1,0,13,74823.0
+2,856000,Tata,NEXON,XZ PLUS PETROL SUNROOF,2022,Manual,SUV,Petrol,,White,30370,15,0,1,1,1,1,0,1,0,1,1,1,0,1,0,1,0,10,16293.0
+3,475000,Hyundai,GRAND I10 NIOS,SPORTZ 1.2 KAPPA VTVT,2019,Manual,Hatchback,Petrol,,Blue,20902,15,0,1,1,1,0,0,1,0,1,0,1,0,0,0,0,0,6,9286.0
+4,319000,Maruti,Alto,VXI,2019,Manual,Hatchback,Petrol,,Silver,31057,15,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,2,6237.0
+5,266000,Hyundai,i20,SPORTZ 1.4 CRDI,2013,Manual,Hatchback,Diesel,,White,161200,14,0,1,0,1,0,0,0,0,1,0,0,0,0,0,0,0,3,12522.0
+6,615000,Hyundai,Creta,SX PLUS AT 1.6 DIESEL,2017,Automatic,SUV,Diesel,,White,84323,14,0,1,1,1,0,1,0,0,1,1,1,1,0,1,0,0,9,12023.0
+7,386000,Maruti,Ciaz,ZXI,2015,Manual,Sedan,Petrol,,Brown,96722,15,0,1,0,1,0,0,0,0,1,0,1,0,0,0,0,0,4,8586.0
+8,665000,Honda,Amaze,1.5L I-DTEC VX,2022,Manual,Sedan,Diesel,,White,56793,10,0,1,1,1,1,0,1,0,1,1,0,0,0,1,0,0,8,13001.0
+9,605050,Tata,NEXON,XM DIESEL,2018,Manual,SUV,Diesel,,Silver,74255,14,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,2,11829.0
+10,497000,Hyundai,Creta,SX (O) 1.6 DIESEL,2015,Manual,SUV,Diesel,,White,217032,14,0,1,0,1,0,1,0,1,1,0,1,0,0,0,0,0,6,13088.0
+11,990000,Toyota,Innova,2.5 VX 7 STR,2015,Manual,SUV,Diesel,,Silver,181223,14,0,1,0,1,0,0,0,0,1,0,1,0,0,0,0,0,4,25587.0
+12,995000,KIA,SELTOS,HTE 1.5 DIESEL,2021,Manual,SUV,Diesel,,White,45811,14,0,0,0,1,0,0,0,0,1,0,1,0,0,0,0,0,3,18939.0
+13,1195000,Jeep,Compass,SPORT PLUS 1.4 PETROL,2019,Manual,SUV,Petrol,,White,62092,15,0,1,0,1,0,0,1,0,1,0,1,0,0,0,0,0,5,22746.0
+14,86000,Ford,Figo,ZXI 1.2 PETROL,2011,Manual,Hatchback,Petrol,,Silver,158337,15,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,2,7641.0
+15,1200000,Hyundai,Creta,S 1.5 DIESEL,2020,Manual,SUV,Diesel,,White,134764,14,0,0,1,1,1,0,1,0,1,1,1,0,0,0,1,0,8,26091.0
+16,320000,Mahindra,Kuv100,K8 D 6 STR,2016,Manual,SUV,Diesel,,Silver,120349,14,0,1,0,1,0,0,0,0,0,0,0,0,0,1,0,0,3,7118.0
+17,911000,Maruti,XL6,ALPHA AT,2022,Automatic,SUV,Petrol,,Silver,90841,15,0,1,1,1,1,0,1,1,1,1,1,0,0,1,0,0,10,17340.0
+18,503000,Maruti,Swift Dzire,VDI ABS,2015,Manual,Sedan,Diesel,,Red,94175,14,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,13246.0
+19,425464,Maruti,IGNIS,DELTA 1.2,2018,Manual,Hatchback,Petrol,,Black,27000,15,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,2,8318.0
+20,364560,Maruti,Swift Dzire,VXI,2015,Manual,Sedan,Petrol,,Silver,69167,15,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8109.0
+21,369000,Hyundai,Grand i10,SPORTZ 1.2 KAPPA VTVT,2016,Manual,Hatchback,Petrol,,Orange,52599,15,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,2,7214.0
+22,219000,Renault,Duster,85 PS RXL DIESEL,2014,Manual,SUV,Diesel,,Brown,145711,14,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,2,7274.0
+23,850000,Hyundai,VENUE,SX 1.0 TURBO IMT,2022,Manual,SUV,Petrol,,White,726,15,0,0,1,1,1,0,1,0,1,0,1,0,1,1,0,0,8,16179.0
+24,238000,Renault,Kwid,RXT 0.8 (O),2018,Manual,Hatchback,Petrol,,Silver,111957,15,0,0,0,1,0,1,1,0,1,0,0,0,0,1,0,0,5,5294.0
+25,443000,Maruti,Baleno,ZETA PETROL 1.2,2018,Manual,Hatchback,Petrol,,Blue,98112,15,0,1,0,1,0,0,0,0,1,1,0,0,0,0,0,0,4,8661.0
+26,1101000,MG,HECTOR,SHARP 1.5 PETROL CVT,2021,Automatic,SUV,Petrol,,Red,36878,15,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,15,20957.0
+27,305000,Hyundai,Verna,FLUIDIC 1.6 VTVT SX,2013,Manual,Sedan,Petrol,,White,90538,15,0,1,0,1,0,0,0,0,1,0,0,0,0,1,0,0,4,10130.0
+28,1050000,Maruti,XL6,ALPHA MT,2022,Manual,SUV,Petrol,,Blue,86360,15,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,19986.0
+29,753000,Renault,TRIBER,RXZ,2023,Manual,SUV,Petrol,,Brown,29039,15,0,0,1,1,0,0,1,0,1,1,1,0,0,1,1,0,8,14721.0

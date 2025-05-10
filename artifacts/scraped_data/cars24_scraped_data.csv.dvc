@@ -1,0 +1,5 @@
+outs:
+- md5: 77c0accabec769cadca43e2b9de58ff1
+  size: 5187150
+  hash: md5
+  path: cars24_scraped_data.csv
