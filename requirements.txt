@@ -133,7 +133,7 @@ pygtrie==2.5.0
 pyparsing==3.1.4
 python-dateutil==2.9.0.post0
 pytz==2025.2
-pywin32==306
+pywin32==310
 PyYAML==6.0.2
 requests==2.32.3
 requests-toolbelt==1.0.0
